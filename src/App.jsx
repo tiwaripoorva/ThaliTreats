@@ -8,6 +8,8 @@ import LoginButton from './Components/LoginButton'
 import Profile from './Pages/Profile'
 import LogoutPage from './Pages/LogoutPage'
 import { Auth0Provider } from '@auth0/auth0-react'
+import PrivacyPolicy from './Pages/PrivacyPolicy'
+import TermsOfService from './Pages/Terms'
 const App = () => {
   return (
   <Auth0Provider
@@ -26,6 +28,8 @@ const App = () => {
           <Route path='/success' element={<Success />} />
           <Route path='/*' element={<Error />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/privacy' element={<PrivacyPolicy/>} />
+          <Route path='/terms' element={<TermsOfService/>}/>
         </Routes>
       </BrowserRouter>
 </Auth0Provider>

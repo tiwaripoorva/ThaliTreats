@@ -7,14 +7,15 @@ import { useNavigate } from 'react-router-dom';
 const NavBar = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { logout } = useAuth0();
+  const { user,logout } = useAuth0();
+  const defaultLogo = "/src/assets/logo.png";
   return (
     <nav className="flex flex-wrap justify-between items-center py-2 px-2 mb-6" style={{ backgroundColor: '#00CED7' }}>
       <div className="flex items-center space-x-2">
         <img
           alt="thalitreats logo"
-          src="/src/assets/logo.png"
-          className="h-8 w-auto"
+          src={defaultLogo}
+          className="h-9 w-auto"
         />
         <div>
           <h1 className='text-xl font-bold'>THALITREATS</h1>
@@ -36,8 +37,8 @@ const NavBar = () => {
             <MenuButton className="inline-flex justify-center gap-x-1.5 rounded-full p-1 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50">
               <img
                 alt="Profile"
-                src="/src/assets/account.png"
-                className="h-6 w-6 rounded-full"
+                src={user?.picture || defaultLogo}
+                className="h-9 w-9 rounded-full"
               />
             </MenuButton>
           </div>
